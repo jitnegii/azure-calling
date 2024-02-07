@@ -1,0 +1,7 @@
+{
+  "name": "csx-call",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center"> CSX </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container" class="call-screen">
+    <div class="call-info">
+      <div class="user-id">User Id : {{getCallerId()}}</div>
+      <div class="call-duration" *ngIf="isConnected">{{getDuration()}}</div>
+      <div class="call-status" *ngIf="isIncomingCall || (isCalling && !isConnected)"> {{getCallStatus()}}</div>
+    </div>
+    <div class="call-action">
+      <ion-icon id="speaker" *ngIf="isCalling && call"  name="volume-high"  color="{{(!call || isOnSpeaker)?'danger':'success'}}" size="large" (click)="toggleSpeaker()"></ion-icon>
+      <ion-icon id="mic" *ngIf="isCalling && call"  name="{{(!call || call.isMuted)?'mic-off':'mic'}}"  color="danger" size="large" (click)="toggleMute()"></ion-icon>
+      <ion-button *ngIf="!isCalling && !isIncomingCall" (click)="startCAll()">Call <ion-icon name="call" color="light"></ion-icon></ion-button>
+      <ion-button *ngIf="isCalling && !isIncomingCall" (click)="endCall()" color="danger">Hangup <ion-icon name="call" color="light"></ion-icon></ion-button>
+      <ion-button *ngIf="isIncomingCall" (click)="acceptCall()" color="success">Accept <ion-icon name="call" color="light"></ion-icon></ion-button>
+      <ion-button *ngIf="isIncomingCall" color="danger" (click)="rejectCall()">Decline <ion-icon name="close"></ion-icon></ion-button>
+  </div>
+  </div>
+</ion-content>
