@@ -132,7 +132,7 @@ export class HomePage {
         displayName: 'Jitender Singh',
       });
       await this.requetDevicePermission();
-      AudioToggle.setAudioMode(AudioToggle.EARPIECE);
+     
     
       // Listen for an incoming call to accept.
       this.callAgent.on('incomingCall', this.incomingCallListener.bind(this));
@@ -262,6 +262,8 @@ export class HomePage {
         case 'Ringing':
           break;
         case 'Connected':
+          this.isOnSpeaker = false
+          AudioToggle.setAudioMode(AudioToggle.EARPIECE);
           this.zone.run(() => {
             this.isConnected = true;
             this.timer.start();
