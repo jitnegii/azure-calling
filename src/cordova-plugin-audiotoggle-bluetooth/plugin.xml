@@ -31,11 +31,16 @@
     </platform>
 
     <platform name="android">
+        <source-file src="src/android/com/dooble/audiotoggle/AudioDeviceSelector.java" target-dir="src/com/dooble/audiotoggle" />
+        <source-file src="src/android/com/dooble/audiotoggle/AudioDeviceSelectorPostS.java" target-dir="src/com/dooble/audiotoggle" />
+        <source-file src="src/android/com/dooble/audiotoggle/AudioDeviceSelectorPreS.java" target-dir="src/com/dooble/audiotoggle" />
+        <source-file src="src/android/com/dooble/audiotoggle/AudioManagerAndroid.java" target-dir="src/com/dooble/audiotoggle" />
         <source-file src="src/android/com/dooble/audiotoggle/AudioTogglePlugin.java" target-dir="src/com/dooble/audiotoggle" />
+        <source-file src="src/android/com/dooble/audiotoggle/ContextUtils.java" target-dir="src/com/dooble/audiotoggle" />
   
         <config-file target="res/xml/config.xml" parent="/*">
 			<feature name="AudioTogglePlugin">
-				<param name="android-package" value="com.dooble.audiotoggle.AudioTogglePlugin" />
+                <param name="android-package" value="com.dooble.audiotoggle.AudioTogglePlugin" />
 			</feature>	
         </config-file>
 
